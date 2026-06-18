@@ -30,19 +30,19 @@
     },
     {
       "src": "/",
-      "dest": "/api/site.js"
+      "dest": "/api/site-public.js"
     },
     {
       "src": "/shop/?",
-      "dest": "/api/site.js"
+      "dest": "/api/site-public.js"
     },
     {
       "src": "/checkout/?",
-      "dest": "/api/site.js"
+      "dest": "/api/site-public.js"
     },
     {
       "src": "/contacts/?",
-      "dest": "/api/site.js"
+      "dest": "/api/site-public.js"
     },
     {
       "src": "/(.*)",
