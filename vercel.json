@@ -33,6 +33,14 @@
       "dest": "/api/site.js"
     },
     {
+      "src": "/shop/?",
+      "dest": "/api/site.js"
+    },
+    {
+      "src": "/checkout/?",
+      "dest": "/api/site.js"
+    },
+    {
       "src": "/contacts/?",
       "dest": "/api/site.js"
     },
