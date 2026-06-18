@@ -25,6 +25,18 @@
       "dest": "/assets/$1"
     },
     {
+      "src": "/index.html",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/",
+      "dest": "/api/site.js"
+    },
+    {
+      "src": "/contacts/?",
+      "dest": "/api/site.js"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
