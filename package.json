@@ -1,0 +1,13 @@
+{
+  "name": "kwaai-coffee-rev22-fullstack",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node scripts/verify.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

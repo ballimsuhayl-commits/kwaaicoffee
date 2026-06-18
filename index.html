@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>KWAAI Coffee — REV22 Fullstack Logo Assembly</title>
+<meta name="description" content="KWAAI Coffee full-stack deploy-ready website with animated split-logo assembly, cold ready-to-drink bottles, chilled pouches, joyful South African brand voice, and order enquiry backend." />
+<style>
+:root{
+  --paper:#fff7ea; --cream:#ffead0; --ice:#eefdfd; --frost:#d7f7f5; --ink:#211106; --brown:#3b1b09; --orange:#f04b24; --gold:#f6a400; --teal:#008d8c; --mint:#bbcf8c; --blue:#78aace; --line:rgba(33,17,6,.14); --white:#fff; --shadow:rgba(35,18,8,.34); --soft:cubic-bezier(.16,1,.3,1); --editorial:cubic-bezier(.22,.72,.12,1); --header:82px;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth;background:var(--paper)} body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden} a{color:inherit;text-decoration:none} img,video{display:block;max-width:100%} button,input,textarea{font:inherit} button{cursor:pointer} ::selection{background:var(--teal);color:#fff}
+.skip-link{position:fixed;z-index:9999;left:12px;top:12px;background:#fff;color:#000;padding:10px 14px;border-radius:99px;transform:translateY(-160%);font-weight:900}.skip-link:focus{transform:none}
+.progress{position:fixed;left:0;top:0;right:0;height:4px;z-index:900;background:transparent}.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--orange),var(--gold),var(--teal));transform:scaleX(0);transform-origin:left}
+.site-grain{position:fixed;inset:0;z-index:800;pointer-events:none;opacity:.035;background-image:radial-gradient(circle,#000 0 1px,transparent 1px);background-size:4px 4px;mix-blend-mode:multiply}.cold-mist{position:fixed;inset:-20vh -10vw;z-index:2;pointer-events:none;background:radial-gradient(circle at 20% 22%,rgba(121,224,220,.13),transparent 28%),radial-gradient(circle at 72% 35%,rgba(255,255,255,.18),transparent 34%),radial-gradient(circle at 48% 80%,rgba(246,164,0,.08),transparent 28%);filter:blur(12px);opacity:.72;animation:mist 16s ease-in-out infinite alternate}@keyframes mist{to{transform:translate3d(-2vw,3vh,0) scale(1.03)}}
+.header{position:sticky;top:0;height:var(--header);z-index:600;background:rgba(255,247,234,.89);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.nav{height:100%;max-width:1420px;margin:auto;display:flex;align-items:center;gap:22px;padding:0 clamp(16px,4vw,38px)}.brand{display:flex;align-items:center;gap:12px;min-width:190px}.brand img{width:42px;height:42px;object-fit:contain;filter:drop-shadow(0 8px 12px rgba(0,0,0,.12))}.brand strong{display:block;font-size:15px;letter-spacing:.08em}.brand small{display:block;margin-top:4px;color:var(--teal);letter-spacing:.22em;font-size:10px;font-weight:1000}.nav-links{margin-left:auto;display:flex;gap:clamp(16px,2.8vw,34px);align-items:center;font-size:13px;letter-spacing:.1em;font-weight:1000}.nav-links a{position:relative;padding:10px 0}.nav-links a:after{content:"";position:absolute;left:0;right:0;bottom:4px;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .28s var(--soft)}.nav-links a:hover:after,.nav-links a.active:after{transform:scaleX(1)}.cart-pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:11px 15px;font-weight:1000;letter-spacing:.06em;display:flex;gap:8px;align-items:center;box-shadow:0 14px 30px rgba(33,17,6,.08)}
+.btn{border:0;border-radius:999px;min-height:48px;padding:0 22px;font-weight:1000;letter-spacing:.02em;background:var(--orange);color:#fff;box-shadow:0 18px 34px rgba(240,75,36,.24);transition:transform .25s var(--soft),box-shadow .25s var(--soft)}.btn:hover{transform:translateY(-2px);box-shadow:0 24px 44px rgba(240,75,36,.31)}.btn.secondary{background:rgba(255,255,255,.20);box-shadow:inset 0 0 0 1px rgba(255,255,255,.34);backdrop-filter:blur(12px)}.btn.dark{background:var(--ink);box-shadow:0 18px 34px rgba(33,17,6,.2)}
+main{position:relative}.section{position:relative;padding:clamp(84px,10vw,150px) clamp(20px,6vw,92px);overflow:hidden}.section-inner{max-width:1360px;margin:0 auto;position:relative;z-index:160}.eyebrow{font-size:12px;font-weight:1000;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin:0 0 18px}.h1,.h2{font-weight:1000;text-transform:uppercase;letter-spacing:-.08em;line-height:.78;margin:0}.h1{font-size:clamp(72px,12.5vw,210px)}.h2{font-size:clamp(54px,8.4vw,142px)}.lede{font-size:clamp(18px,2.2vw,28px);line-height:1.12;font-weight:900;max-width:650px}.copy{font-size:17px;line-height:1.5;color:rgba(33,17,6,.67);font-weight:700}.cold-panel{border:1px solid rgba(255,255,255,.42);background:linear-gradient(135deg,rgba(255,255,255,.58),rgba(255,255,255,.18));box-shadow:0 34px 80px rgba(33,17,6,.16), inset 0 0 0 1px rgba(255,255,255,.36);backdrop-filter:blur(18px);border-radius:42px}.cold-panel:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background-image:radial-gradient(circle,rgba(255,255,255,.64) 0 1px,transparent 1.4px);background-size:20px 20px;opacity:.13;mask-image:linear-gradient(120deg,transparent 0%,#000 45%,transparent 100%)}
+/* Hero — REV13 CLEAN LANDING + LOGO MOTION */
+.hero{min-height:calc(100svh - var(--header));position:relative;background:#1c100b;color:#fff;padding:0;overflow:hidden}.hero-video{position:absolute;inset:0;z-index:0}.hero-video video{width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.04) brightness(.82)}.hero-video:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,10,6,.76) 0%,rgba(18,10,6,.54) 38%,rgba(18,10,6,.18) 64%,rgba(18,10,6,.38) 100%),radial-gradient(circle at 79% 42%,rgba(0,141,140,.22),transparent 30%),radial-gradient(circle at 18% 80%,rgba(240,75,36,.18),transparent 32%)}.hero .section-inner{min-height:calc(100svh - var(--header));position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.62fr);gap:clamp(24px,5vw,76px);align-items:center;padding:clamp(42px,6vw,88px) clamp(20px,6vw,92px)}.hero-copy{position:relative;z-index:12;max-width:850px}.hero-copy .eyebrow{color:#00aaa8;text-shadow:0 10px 28px rgba(0,0,0,.42)}.hero-copy .h1{font-size:clamp(72px,9.2vw,158px);line-height:.82;max-width:820px;text-shadow:0 28px 80px rgba(0,0,0,.46)}.hero-copy .lede{color:rgba(255,255,255,.88);margin:24px 0 30px;max-width:590px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.hero-stage{position:relative;min-height:560px;z-index:9;display:grid;place-items:center;perspective:1200px}.hero-logo-stage{position:relative;width:min(19vw,245px);aspect-ratio:1;border-radius:42%;display:grid;place-items:center;background:radial-gradient(circle at 42% 30%,rgba(255,255,255,.74),rgba(255,247,234,.30) 44%,rgba(255,255,255,.10) 72%);border:1px solid rgba(255,255,255,.30);box-shadow:0 54px 120px rgba(0,0,0,.40),inset 0 0 0 1px rgba(255,255,255,.18);backdrop-filter:blur(10px);transform:rotate(-4deg);overflow:visible;animation:heroLogoFloat 6.8s ease-in-out infinite alternate}.hero-logo-stage:before{content:"";position:absolute;inset:9%;border-radius:44%;background:linear-gradient(135deg,rgba(255,255,255,.16),transparent 46%,rgba(0,141,140,.10));box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);transform:rotate(8deg)}.hero-logo-stage:after{content:"";position:absolute;left:22%;right:22%;bottom:-9%;height:11%;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.38),rgba(0,0,0,.16) 52%,transparent 75%);filter:blur(13px);opacity:.72}.hero-logo-main{position:relative;z-index:2;width:72%;filter:drop-shadow(0 26px 34px rgba(33,17,6,.35));transform-origin:50% 62%;animation:heroLogoBreath 4.8s ease-in-out infinite}.hero-logo-ring{position:absolute;inset:-9%;border-radius:50%;border:1px solid rgba(255,255,255,.18);border-top-color:rgba(0,141,140,.42);border-left-color:rgba(240,75,36,.34);animation:heroLogoOrbit 18s linear infinite}.hero-logo-caption{position:absolute;left:50%;bottom:-44px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:8px;white-space:nowrap;border-radius:999px;background:rgba(255,247,234,.92);color:var(--ink);padding:10px 16px;font-weight:1000;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 18px 42px rgba(0,0,0,.20)}.hero-logo-caption small{color:var(--teal);font-size:10px;letter-spacing:.18em}.hero-facts{display:none}.hero-facts span{display:none}@keyframes heroLogoFloat{0%{transform:translate3d(0,0,0) rotate(-4deg)}100%{transform:translate3d(0,-18px,0) rotate(2deg)}}@keyframes heroLogoBreath{0%,100%{transform:scale(.985) rotate(-1deg)}50%{transform:scale(1.035) rotate(1.2deg)}}@keyframes heroLogoOrbit{to{transform:rotate(360deg)}}
+/* cartwheel actor */
+.cartwheel-actor{position:fixed;z-index:120;left:0;top:0;width:clamp(132px,14.6vw,236px);opacity:0;transform:translate3d(110vw,70vh,0) translate(-50%,-50%) rotate(0deg) scale(.34);pointer-events:none;transform-origin:center center;will-change:transform,opacity;filter:drop-shadow(0 50px 34px rgba(34,16,6,.38)) drop-shadow(0 15px 13px rgba(0,0,0,.17));transition:opacity .28s ease-out}.cartwheel-actor img{width:100%;height:auto;display:block}.cartwheel-actor .actor-shadow{position:absolute;left:20%;right:20%;bottom:-6%;height:18%;border-radius:50%;background:radial-gradient(ellipse,rgba(27,14,8,.40),rgba(27,14,8,.13) 54%,transparent 74%);filter:blur(10px);transform:rotate(3deg) scaleX(1.16);z-index:-1;opacity:.86}.cartwheel-label{display:none}
+/* Motion story */
+.motion-story{background:linear-gradient(180deg,#fff7ea,#eefdfd 54%,#fff7ea);min-height:130svh}.motion-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,6vw,90px);align-items:center}.lane{min-height:650px;position:relative;border-radius:58px;background:linear-gradient(135deg,rgba(255,255,255,.76),rgba(222,250,249,.44));box-shadow:inset 0 0 0 1px rgba(255,255,255,.8),0 30px 80px rgba(0,141,140,.12);overflow:hidden}.lane:before{content:"";position:absolute;left:8%;right:8%;top:50%;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent);opacity:.45}.dock-dot{position:absolute;width:18px;height:18px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 12px rgba(240,75,36,.12)}.dock-dot:nth-child(1){left:15%;top:68%}.dock-dot:nth-child(2){left:48%;top:38%;background:var(--gold)}.dock-dot:nth-child(3){right:16%;top:62%;background:var(--teal)}.route-copy{align-self:start;position:sticky;top:110px}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}.fact{padding:18px;border-radius:24px;background:rgba(255,255,255,.66);border:1px solid var(--line);font-weight:900}.fact small{display:block;margin-bottom:8px;color:var(--teal);letter-spacing:.12em;text-transform:uppercase;font-weight:1000;font-size:10px}
+/* Bottle range */
+.bottle-range{background:#fff8ec}.range-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:48px}.range-head .copy{max-width:470px}.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}.product-card{position:relative;min-height:520px;border-radius:42px;background:linear-gradient(180deg,rgba(255,255,255,.86),rgba(255,238,213,.66));border:1px solid rgba(33,17,6,.1);box-shadow:0 30px 70px rgba(33,17,6,.12), inset 0 0 0 1px rgba(255,255,255,.7);padding:22px;overflow:hidden;transform-style:preserve-3d;perspective:900px}.product-card:after{content:"";position:absolute;left:18%;right:18%;bottom:118px;height:24px;border-radius:50%;background:radial-gradient(ellipse,rgba(35,18,8,.28),rgba(35,18,8,.11) 55%,transparent 75%);filter:blur(8px);transform:translateZ(-20px)}.product-card .product-img{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%) translateZ(60px);width:72%;height:62%;object-fit:contain;filter:drop-shadow(0 34px 24px rgba(33,17,6,.25)) drop-shadow(0 10px 10px rgba(0,0,0,.10));transition:transform .65s var(--soft),filter .65s var(--soft)}.product-card:hover .product-img{transform:translate(-50%,-53%) translateZ(90px) rotate(-3deg) scale(1.04);filter:drop-shadow(0 48px 34px rgba(33,17,6,.32)) drop-shadow(0 14px 14px rgba(0,0,0,.12))}.product-info{position:absolute;left:22px;right:22px;bottom:22px;z-index:3}.product-info h3{margin:0;font-size:25px;line-height:.96;letter-spacing:-.045em;text-transform:uppercase}.meta{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.chip{border:1px solid rgba(33,17,6,.14);background:#fff;border-radius:999px;padding:7px 10px;font-weight:900;font-size:12px}.product-info p{margin:0 0 14px;color:rgba(33,17,6,.66);font-weight:800;line-height:1.32}.add-btn{width:100%;min-height:44px;border:0;border-radius:999px;background:var(--ink);color:#fff;font-weight:1000}.cold-sheen{position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 0 30%,rgba(255,255,255,.34) 44%,transparent 58%);transform:translateX(-80%);transition:transform .9s var(--soft)}.product-card:hover .cold-sheen{transform:translateX(80%)}
+/* Pouch range */
+.pouch-range{background:linear-gradient(180deg,#eafcfb 0%,#fff7ea 100%)}.pouch-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:center}.pouch-stage{position:relative;min-height:640px;border-radius:58px;background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(225,252,250,.65));overflow:hidden;box-shadow:0 40px 90px rgba(0,141,140,.14), inset 0 0 0 1px rgba(255,255,255,.84)}.ice-cubes{position:absolute;inset:0;background:radial-gradient(circle at 25% 72%,rgba(255,255,255,.88) 0 28px,transparent 30px),radial-gradient(circle at 68% 76%,rgba(255,255,255,.84) 0 38px,transparent 41px),radial-gradient(circle at 52% 62%,rgba(255,255,255,.72) 0 22px,transparent 24px);filter:blur(1px);opacity:.52}.pouch-object{position:absolute;width:34%;filter:drop-shadow(0 42px 28px rgba(42,22,9,.28));transform-origin:50% 80%}.pouch-object:after{content:""}.pouch-object img{width:100%}.pouch-object.one{left:8%;top:22%;transform:rotate(-8deg)}.pouch-object.two{left:34%;top:10%;z-index:3;transform:rotate(2deg) scale(1.1)}.pouch-object.three{right:6%;top:24%;transform:rotate(8deg)}.pouch-list{display:grid;gap:16px}.pouch-card{position:relative;padding:22px 22px 22px 96px;border-radius:28px;background:rgba(255,255,255,.74);border:1px solid rgba(33,17,6,.11);box-shadow:0 20px 42px rgba(33,17,6,.09)}.pouch-card img{position:absolute;left:10px;bottom:8px;width:74px;filter:drop-shadow(0 18px 14px rgba(33,17,6,.22))}.pouch-card h3{margin:0 0 8px;text-transform:uppercase;letter-spacing:-.03em}.pouch-card p{margin:0;color:rgba(33,17,6,.66);font-weight:800}
+/* Brand seal */
+.brand-seal{background:radial-gradient(circle at 15% 16%,rgba(0,141,140,.16),transparent 28%),radial-gradient(circle at 90% 75%,rgba(240,75,36,.18),transparent 30%),linear-gradient(135deg,#fff7ea 0%,#ffe6cd 48%,#eefdfd 100%);color:var(--ink);min-height:100svh;display:grid;place-items:center;text-align:center;isolation:isolate;overflow:hidden}.seal-bg-type{position:absolute;inset:0;display:grid;place-items:center;font-weight:1000;line-height:.78;letter-spacing:-.08em;text-transform:uppercase;font-size:clamp(120px,22vw,360px);color:rgba(33,17,6,.055);z-index:-1}.seal-logo{display:none}.seal-card{width:min(76vw,720px);min-height:360px;margin:0 auto 32px;border-radius:56px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(255,255,255,.86),rgba(255,247,234,.62));border:1px solid rgba(33,17,6,.13);box-shadow:0 55px 110px rgba(33,17,6,.20),inset 0 0 0 1px rgba(255,255,255,.72);transform-origin:center;overflow:hidden}.seal-card:before{content:"";position:absolute;inset:18px;border-radius:42px;border:1px dashed rgba(33,17,6,.17);pointer-events:none}.seal-wordmark{font-weight:1000;text-transform:uppercase;line-height:.78;letter-spacing:-.08em;font-size:clamp(82px,15vw,230px);text-shadow:0 24px 50px rgba(33,17,6,.12)}.seal-wordmark .kw{color:var(--orange)}.seal-wordmark .aa{color:var(--teal)}.seal-wordmark .i{color:var(--brown)}.seal-coffee{margin-top:18px;font-size:clamp(18px,3.2vw,46px);letter-spacing:.32em;font-weight:1000;color:var(--brown)}.brand-seal .copy{color:rgba(33,17,6,.66);max-width:560px;margin:auto}
+/* World */
+.world{background:#fff7ea}.world-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:22px}.editorial-card{position:relative;border-radius:44px;overflow:hidden;min-height:520px;background:#eee;box-shadow:0 34px 80px rgba(33,17,6,.14)}.editorial-card img{width:100%;height:100%;object-fit:cover}.editorial-card.small{min-height:250px}.editorial-card .caption{position:absolute;left:22px;right:22px;bottom:22px;padding:18px;border-radius:24px;background:rgba(255,247,234,.84);backdrop-filter:blur(14px);box-shadow:0 20px 50px rgba(0,0,0,.14)}.caption h3{margin:0 0 8px;font-size:24px;text-transform:uppercase;letter-spacing:-.04em}.caption p{margin:0;color:rgba(33,17,6,.66);font-weight:800;line-height:1.35}.world-stack{display:grid;gap:22px}
+/* Shop */
+.shop{background:linear-gradient(180deg,#fff7ea,#f0fbfb)}.shop-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}.shop-products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.shop-item{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;padding:16px;border-radius:26px;background:rgba(255,255,255,.78);border:1px solid var(--line);box-shadow:0 20px 50px rgba(33,17,6,.08)}.shop-item img{width:96px;height:118px;object-fit:contain;filter:drop-shadow(0 22px 16px rgba(33,17,6,.22))}.shop-item h3{margin:0;font-size:18px;text-transform:uppercase;letter-spacing:-.03em}.shop-item p{margin:5px 0 10px;color:rgba(33,17,6,.66);font-weight:800;font-size:13px}.cart-box{position:sticky;top:104px;padding:24px;border-radius:36px;background:#fff;border:1px solid var(--line);box-shadow:0 34px 80px rgba(33,17,6,.16)}.cart-box h3{margin:0 0 16px;font-size:28px;letter-spacing:-.04em;text-transform:uppercase}.cart-list{display:grid;gap:10px;margin:14px 0;min-height:40px}.cart-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:12px;border-radius:16px;background:#fff7ea;font-weight:800}.qty{display:inline-flex;align-items:center;gap:6px}.qty button{border:0;background:var(--ink);color:#fff;border-radius:50%;width:25px;height:25px;font-weight:1000}.form-grid{display:grid;gap:10px;margin-top:18px}.form-grid input,.form-grid textarea{width:100%;border:1px solid var(--line);border-radius:18px;padding:13px 14px;background:#fff7ea;color:var(--ink);font-weight:800}.form-grid textarea{min-height:92px;resize:vertical}.disclaimer{font-size:12px;line-height:1.45;color:rgba(33,17,6,.58);font-weight:800;margin-top:12px}.summary-output{white-space:pre-wrap;border-radius:18px;background:#170d07;color:#fff;padding:14px;margin-top:12px;font-size:12px;line-height:1.45;display:none}
+.footer{background:#120b07;color:#fff;padding:54px clamp(20px,6vw,90px)}.footer .section-inner{display:flex;justify-content:space-between;gap:26px;align-items:end}.footer-logo{display:flex;gap:14px;align-items:center}.footer-logo img{width:64px}.footer p{color:rgba(255,255,255,.68);font-weight:800;max-width:500px}.footer small{color:rgba(255,255,255,.54);font-weight:800}
+.reveal{opacity:0;transform:translateY(45px)}.is-visible{opacity:1!important;transform:none!important;transition:opacity .9s var(--soft),transform .9s var(--soft)}
+@media(max-width:980px){:root{--header:72px}.nav-links{display:none}.brand{min-width:auto}.hero .section-inner{grid-template-columns:1fr;min-height:calc(100svh - var(--header));padding-top:44px;padding-bottom:82px}.hero-stage{min-height:220px;place-items:center}.hero-logo-stage{width:min(54vw,240px)}.hero-facts{display:none}.hero-facts span{display:none}.h1{font-size:clamp(58px,20vw,110px)}.h2{font-size:clamp(44px,15vw,84px)}.cartwheel-actor{width:130px}.cartwheel-label{display:none}.motion-grid,.pouch-layout,.world-grid,.shop-grid{grid-template-columns:1fr}.product-grid{grid-template-columns:1fr 1fr}.product-card{min-height:440px}.product-card .product-img{height:58%}.range-head{display:block}.pouch-stage{min-height:500px}.shop-products{grid-template-columns:1fr}.footer .section-inner{display:block}.facts{grid-template-columns:1fr}.route-copy{position:relative;top:auto}}
+@media(max-width:620px){.section{padding-left:16px;padding-right:16px}.product-grid{grid-template-columns:1fr}.product-card{min-height:430px}.hero-actions .btn{width:100%;justify-content:center}.pouch-object{width:46%}.pouch-object.one{left:-4%;top:27%}.pouch-object.two{left:26%;top:13%}.pouch-object.three{right:-8%;top:30%}.shop-item{grid-template-columns:82px 1fr}.shop-item img{width:82px;height:108px}.cartwheel-actor{display:none}.brand-seal{min-height:76svh}.hero-logo-stage{width:48vw}.hero-facts{display:none}.seal-logo{width:72vw}.world-grid,.world-stack{gap:16px}.editorial-card{min-height:360px}.editorial-card.small{min-height:260px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important;scroll-behavior:auto!important}.cartwheel-actor{display:none}.reveal{opacity:1;transform:none}.cold-mist{display:none}}
+
+/* REV14 — HERO VIDEO RESTORED: video is the hero layer again; logo becomes a small animated seal; scroll bottle starts after hero. */
+
+/* REV16 — Hazelnut pouch asset repair + cleaner pouch editorial layout */
+#pouches .h2{font-size:clamp(56px,7.2vw,118px);line-height:.86;letter-spacing:-.075em;max-width:780px}
+#pouches .lede{max-width:700px}
+#pouches .pouch-stage{overflow:visible}
+#pouches .pouch-object{filter:drop-shadow(0 46px 32px rgba(42,22,9,.30));}
+#pouches .pouch-object.two{left:37%;top:7%;z-index:4;width:36%}
+#pouches .pouch-card img{filter:drop-shadow(0 18px 14px rgba(33,17,6,.20));}
+@media(max-width:980px){#pouches .h2{font-size:clamp(48px,13vw,86px)}#pouches .pouch-stage{overflow:hidden}}
+
+
+/* REV16B — keep pouch product images visible and above cold background only */
+#pouches .pouch-stage .pouch-object img{background:transparent}
+#pouches .pouch-card{backdrop-filter:blur(8px)}
+#pouches .pouch-list{position:relative;z-index:5}
+
+
+/* REV17 — SOPHISTICATED POUCH MOTION + FUNCTIONAL RANGE BRIDGE */
+.dock-dot{display:none}.dock-chip{position:absolute;min-width:132px;padding:12px 15px;border-radius:999px;background:rgba(255,255,255,.78);border:1px solid rgba(33,17,6,.10);box-shadow:0 18px 42px rgba(0,141,140,.10);font-weight:1000;letter-spacing:.02em}.dock-chip small{display:block;color:var(--teal);font-size:9px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:2px}.dock-chip.chip-one{left:9%;top:66%;transform:rotate(-3deg)}.dock-chip.chip-two{left:43%;top:35%;transform:rotate(2deg)}.dock-chip.chip-three{right:8%;top:61%;transform:rotate(-2deg)}
+#pouches.pouch-range{background:radial-gradient(circle at 10% 12%,rgba(0,141,140,.10),transparent 30%),radial-gradient(circle at 78% 80%,rgba(255,255,255,.54),transparent 34%),linear-gradient(180deg,#e9fbfb 0%,#fff7ea 96%);min-height:150svh}.pouch-layout{grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:clamp(34px,6vw,84px);align-items:start}.pouch-copy{position:sticky;top:calc(var(--header) + 32px);align-self:start}.pouch-copy .lede{max-width:640px}.pouch-stage{position:sticky;top:calc(var(--header) + 24px);min-height:min(760px,calc(100svh - var(--header) - 48px));border-radius:64px;background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(216,251,249,.58) 58%,rgba(255,236,211,.58));overflow:hidden;box-shadow:0 46px 110px rgba(0,141,140,.15),0 24px 70px rgba(33,17,6,.10),inset 0 0 0 1px rgba(255,255,255,.86);isolation:isolate;perspective:1300px;transform-style:preserve-3d}.pouch-stage:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 0 31%,rgba(255,255,255,.44) 45%,transparent 63%);opacity:.55;transform:translateX(-68%);animation:pouchSheen 8s var(--soft) infinite}.pouch-stage:after{content:"";position:absolute;inset:16px;border-radius:50px;border:1px solid rgba(255,255,255,.56);pointer-events:none}.pouch-atmosphere{position:absolute;inset:-10%;background:radial-gradient(circle at 33% 22%,rgba(255,255,255,.76),transparent 19%),radial-gradient(circle at 70% 40%,rgba(0,141,140,.12),transparent 28%),radial-gradient(circle at 45% 85%,rgba(255,255,255,.52),transparent 26%);filter:blur(8px);opacity:.9;z-index:0}.pouch-ice-tray{position:absolute;left:8%;right:8%;bottom:7%;height:28%;border-radius:46px;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(201,246,246,.36));box-shadow:inset 0 0 0 1px rgba(255,255,255,.72),0 40px 80px rgba(33,17,6,.08);transform:rotateX(58deg) translateY(32px);transform-origin:bottom center;z-index:1}.pouch-hero-object{position:absolute;width:min(48%,430px);left:50%;top:48%;margin:0;z-index:8;transform:translate(-50%,-50%) rotate(-3deg);transform-origin:50% 72%;will-change:transform,filter}.pouch-hero-object img{position:relative;z-index:3;width:100%;height:auto;transform-origin:50% 70%;filter:drop-shadow(0 54px 34px rgba(33,17,6,.28)) drop-shadow(0 18px 14px rgba(0,0,0,.12))}.pouch-live-shadow{position:absolute;left:14%;right:14%;bottom:2%;height:30px;border-radius:50%;background:radial-gradient(ellipse,rgba(33,17,6,.34),rgba(33,17,6,.13) 56%,transparent 78%);filter:blur(12px);transform:translateY(26px) scaleX(1.2);z-index:1}.pouch-glint{position:absolute;z-index:4;inset:8% 17% 8% 16%;border-radius:44% 50% 42% 48%;background:linear-gradient(118deg,transparent 0 29%,rgba(255,255,255,.50) 42%,transparent 56%);mix-blend-mode:screen;opacity:.46;pointer-events:none;transform:translateX(-28%)}.pouch-support{position:absolute;margin:0;width:24%;z-index:4;filter:drop-shadow(0 34px 24px rgba(33,17,6,.20));opacity:.92;transform-origin:50% 78%}.pouch-support img{width:100%;height:auto}.pouch-support-caramel{left:6%;bottom:16%;transform:rotate(-9deg) scale(.92)}.pouch-support-vanilla{right:6%;bottom:15%;transform:rotate(8deg) scale(.94)}.pouch-stage-note{position:absolute;left:7%;top:7%;z-index:11;display:grid;gap:4px;padding:12px 15px;border-radius:999px;background:rgba(255,247,234,.88);border:1px solid rgba(33,17,6,.10);box-shadow:0 18px 42px rgba(33,17,6,.10);font-weight:1000;text-transform:uppercase;letter-spacing:.06em}.pouch-stage-note span{color:var(--teal);font-size:11px;letter-spacing:.16em}.pouch-card{transition:transform .42s var(--soft),box-shadow .42s var(--soft),background .42s var(--soft)}.pouch-card.featured{background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(223,250,248,.78));box-shadow:0 26px 58px rgba(0,141,140,.12),0 14px 36px rgba(33,17,6,.08)}.pouch-card:hover{transform:translateY(-4px);box-shadow:0 28px 58px rgba(33,17,6,.13)}
+@keyframes pouchSheen{0%,40%{transform:translateX(-78%)}70%,100%{transform:translateX(78%)}}
+.range-bridge{min-height:auto;padding-top:clamp(96px,10vw,150px);padding-bottom:clamp(96px,10vw,150px);text-align:left}.range-bridge-inner{display:grid;grid-template-columns:.55fr .95fr;gap:clamp(24px,5vw,72px);align-items:center}.range-seal-card{position:relative;border-radius:52px;min-height:360px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(255,255,255,.88),rgba(255,247,234,.68));box-shadow:0 40px 90px rgba(33,17,6,.14),inset 0 0 0 1px rgba(255,255,255,.72);overflow:hidden}.range-seal-card:before{content:"";position:absolute;inset:18px;border-radius:38px;border:1px solid rgba(33,17,6,.10)}.range-seal-card img{width:min(72%,330px);filter:drop-shadow(0 24px 34px rgba(33,17,6,.22));animation:heroLogoBreath 5.6s ease-in-out infinite}.range-bridge-copy .h2{font-size:clamp(56px,8vw,128px)}.format-cards{grid-column:1 / -1;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.format-cards article{min-height:160px;border-radius:30px;background:rgba(255,255,255,.68);border:1px solid rgba(33,17,6,.10);box-shadow:0 24px 54px rgba(33,17,6,.08);padding:22px}.format-cards strong{display:block;text-transform:uppercase;font-size:21px;letter-spacing:-.03em;margin-bottom:12px}.format-cards span{font-weight:800;color:rgba(33,17,6,.64);line-height:1.35}
+
+
+/* REV19 — PRODUCT MARKER THEATRE: replace decorative markers with actual animated products */
+.product-theatre-lane{min-height:700px;padding:34px;display:block;isolation:isolate;background:radial-gradient(circle at 18% 18%,rgba(255,255,255,.92),transparent 34%),radial-gradient(circle at 78% 72%,rgba(0,141,140,.10),transparent 32%),linear-gradient(135deg,rgba(255,255,255,.82),rgba(221,251,250,.52));}
+.product-theatre-lane:before{display:none}.product-theatre-lane:after{content:"";position:absolute;inset:22px;border-radius:42px;border:1px solid rgba(255,255,255,.62);pointer-events:none;z-index:1}.theatre-route{position:absolute;left:11%;right:10%;top:50%;height:2px;background:linear-gradient(90deg,rgba(240,75,36,.0),rgba(240,75,36,.42),rgba(246,164,0,.42),rgba(0,141,140,.42),rgba(0,141,140,0));opacity:.76;z-index:2}.theatre-route:before{content:"";position:absolute;inset:-28px 0;background:radial-gradient(circle at 14% 50%,rgba(240,75,36,.14) 0 20px,transparent 22px),radial-gradient(circle at 50% 50%,rgba(246,164,0,.14) 0 20px,transparent 22px),radial-gradient(circle at 86% 50%,rgba(0,141,140,.14) 0 20px,transparent 22px);filter:blur(1px)}
+.dock-chip{display:none!important}.motion-product-marker{position:absolute;z-index:8;width:min(265px,34%);min-height:290px;border-radius:34px;background:rgba(255,247,234,.78);border:1px solid rgba(33,17,6,.11);box-shadow:0 28px 70px rgba(33,17,6,.12),inset 0 0 0 1px rgba(255,255,255,.72);backdrop-filter:blur(14px);padding:18px;overflow:visible;transform-style:preserve-3d;will-change:transform,opacity}.motion-product-marker:before{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(128deg,transparent 0 28%,rgba(255,255,255,.46) 44%,transparent 62%);transform:translateX(-84%);opacity:.0;transition:transform .9s var(--soft),opacity .35s var(--soft)}.motion-product-marker:hover:before{opacity:.8;transform:translateX(84%)}.marker-bottle{left:6%;top:44%;transform:rotate(-4deg)}.marker-range{left:38%;top:12%;transform:rotate(2deg)}.marker-pouches{right:5%;top:44%;transform:rotate(4deg)}.marker-step{position:absolute;left:18px;top:16px;border-radius:999px;background:var(--ink);color:#fff;padding:7px 9px;font-size:10px;font-weight:1000;letter-spacing:.16em;z-index:5}.marker-product{position:relative;height:170px;margin:10px 0 14px;display:grid;place-items:center;perspective:900px}.marker-product img{position:relative;z-index:3;max-height:165px;width:auto;max-width:86%;object-fit:contain;filter:drop-shadow(0 28px 20px rgba(33,17,6,.24)) drop-shadow(0 8px 8px rgba(0,0,0,.10));transform-origin:50% 72%;animation:productMarkerFloat 5.8s ease-in-out infinite}.marker-shadow{position:absolute;left:21%;right:21%;bottom:5px;height:18px;border-radius:50%;background:radial-gradient(ellipse,rgba(33,17,6,.30),rgba(33,17,6,.10) 60%,transparent 78%);filter:blur(8px);z-index:1;animation:productMarkerShadow 5.8s ease-in-out infinite}.marker-product-range{display:flex;align-items:center;justify-content:center;gap:0}.marker-product-range img{max-height:155px;margin:0 -16px}.marker-product-range img:nth-of-type(1){transform:rotate(-8deg) translateY(8px);animation-delay:.05s}.marker-product-range img:nth-of-type(2){z-index:4;transform:translateY(-6px);animation-delay:.20s}.marker-product-range img:nth-of-type(3){transform:rotate(8deg) translateY(8px);animation-delay:.35s}.marker-product-pouches{display:flex;align-items:center;justify-content:center}.marker-product-pouches img{max-height:164px;margin:0 -22px}.marker-product-pouches img:nth-of-type(1){transform:rotate(-8deg) translateY(12px);animation-name:pouchMarkerGlide;animation-delay:.05s}.marker-product-pouches img:nth-of-type(2){z-index:5;transform:translateY(-8px) scale(1.06);animation-name:pouchMarkerGlide;animation-delay:.20s}.marker-product-pouches img:nth-of-type(3){transform:rotate(9deg) translateY(13px);animation-name:pouchMarkerGlide;animation-delay:.35s}.marker-copy small{display:block;margin-bottom:5px;color:var(--teal);font-size:10px;font-weight:1000;letter-spacing:.18em;text-transform:uppercase}.marker-copy strong{display:block;font-size:clamp(17px,1.7vw,24px);line-height:.92;text-transform:uppercase;letter-spacing:-.04em}.marker-copy span{display:block;margin-top:7px;color:rgba(33,17,6,.66);font-size:12px;font-weight:900;line-height:1.25}.motion-product-marker.is-current{box-shadow:0 42px 92px rgba(0,141,140,.18),0 22px 50px rgba(33,17,6,.12),inset 0 0 0 1px rgba(255,255,255,.84)}.motion-product-marker.is-current .marker-product img{filter:drop-shadow(0 34px 24px rgba(33,17,6,.29)) drop-shadow(0 10px 10px rgba(0,0,0,.12))}
+@keyframes productMarkerFloat{0%,100%{translate:0 0;rotate:-1deg;scale:1}50%{translate:0 -10px;rotate:1.5deg;scale:1.025}}@keyframes productMarkerShadow{0%,100%{transform:scaleX(1);opacity:.72}50%{transform:scaleX(.78);opacity:.44}}@keyframes pouchMarkerGlide{0%,100%{translate:0 0;scale:1}50%{translate:0 -8px;scale:1.018}}
+@media(max-width:980px){.product-theatre-lane{min-height:auto;display:grid;gap:16px;padding:22px}.theatre-route{display:none}.motion-product-marker{position:relative!important;left:auto!important;right:auto!important;top:auto!important;width:100%;min-height:220px;display:grid;grid-template-columns:180px 1fr;align-items:center;transform:none!important}.marker-product{height:180px;margin:0}.marker-product-range img{max-height:142px;margin:0 -18px}.marker-product-pouches img{max-height:150px;margin:0 -18px}}
+@media(max-width:620px){.motion-product-marker{grid-template-columns:1fr;min-height:260px}.marker-product{height:170px}.marker-copy{text-align:left}.marker-range .marker-product img{max-height:132px}.marker-pouches .marker-product img{max-height:138px}}
+@media(max-width:980px){.pouch-layout,.range-bridge-inner{grid-template-columns:1fr}.pouch-copy{position:relative;top:auto}.pouch-stage{position:relative;top:auto;min-height:560px}.pouch-hero-object{width:48%}.pouch-support{width:25%}.format-cards{grid-template-columns:1fr}.dock-chip{font-size:12px;min-width:110px}.dock-chip.chip-two{left:38%}.dock-chip.chip-three{right:4%}}
+@media(max-width:620px){.pouch-stage{min-height:500px;border-radius:40px}.pouch-hero-object{width:57%;top:46%}.pouch-support{width:32%;opacity:.68}.pouch-support-caramel{left:-2%;bottom:12%}.pouch-support-vanilla{right:-4%;bottom:13%}.pouch-stage-note{left:5%;top:5%;font-size:12px}.pouch-card{padding-left:92px}.range-seal-card{min-height:260px}.range-bridge-copy .h2{font-size:clamp(48px,15vw,86px)}.dock-chip{display:none}}
+
+
+/* REV20 — HERO VIDEO PRIORITY + TEXT REVEAL + SPLIT LOGO COMPONENT SYSTEM */
+.hero{background:#130a05;isolation:isolate;}
+.hero-video video{filter:saturate(1.08) contrast(1.03) brightness(1.05);transform:scale(1.018);}
+.hero-video:after{background:linear-gradient(90deg,rgba(18,10,6,.72) 0%,rgba(18,10,6,.50) 32%,rgba(18,10,6,.16) 62%,rgba(18,10,6,.24) 100%),radial-gradient(circle at 18% 76%,rgba(240,75,36,.12),transparent 30%);}
+.hero .section-inner{grid-template-columns:minmax(0,.68fr) minmax(220px,.32fr);gap:clamp(20px,4vw,58px);max-width:1440px;padding-top:clamp(36px,5.5vw,74px);padding-bottom:clamp(38px,5.5vw,82px);}
+.hero-copy{max-width:760px;z-index:22;}
+.hero-copy .h1{font-size:clamp(58px,7.8vw,132px);line-height:.84;letter-spacing:-.075em;max-width:710px;text-shadow:0 24px 68px rgba(0,0,0,.42);}
+.hero-line{display:block;overflow:hidden;padding:.025em 0 .08em;margin:-.02em 0;}
+.hero-line>span{display:block;will-change:transform,opacity;}
+.hero-eyebrow,.hero-lede,.hero-actions .btn{will-change:transform,opacity;}
+.hero-copy .lede{max-width:520px;color:rgba(255,255,255,.92);text-shadow:0 18px 42px rgba(0,0,0,.42);font-size:clamp(17px,1.7vw,25px);}
+.hero-stage{min-height:460px;place-items:end center;align-self:stretch;pointer-events:auto;z-index:16;}
+.hero-logo-stage{width:min(16.5vw,208px);min-width:154px;aspect-ratio:1;border-radius:30px;background:linear-gradient(145deg,rgba(255,247,234,.70),rgba(255,255,255,.24));border:1px solid rgba(255,255,255,.34);box-shadow:0 24px 68px rgba(0,0,0,.26),inset 0 0 0 1px rgba(255,255,255,.22);backdrop-filter:blur(9px);overflow:visible;align-self:end;margin:0 3vw 72px 0;transform:rotate(-2deg);animation:heroLogoFloat 7.8s ease-in-out infinite alternate;}
+.hero-logo-stage:before,.hero-logo-stage:after,.hero-logo-ring{display:none!important;}
+.hero-logo-main{display:none!important;}
+.hero-logo-caption{bottom:-39px;font-size:11px;padding:9px 14px;box-shadow:0 14px 34px rgba(0,0,0,.20);}
+.hero-logo-caption small{font-size:8px;}
+.split-logo{position:relative;width:76%;aspect-ratio:727/1209;display:block;isolation:isolate;filter:drop-shadow(0 24px 34px rgba(33,17,6,.22));}
+.hero-logo-stage .split-logo{width:72%;}
+.split-logo-piece{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:var(--z);transform-origin:var(--origin);will-change:transform,opacity;pointer-events:none;}
+.split-logo-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;pointer-events:none;}
+.split-logo.is-fallback .split-logo-piece{display:none}.split-logo.is-fallback .split-logo-fallback{opacity:1;}
+.hero-logo-stage:hover .piece-09{transform:translate3d(-10px,-12px,0) rotate(-6deg)}
+.hero-logo-stage:hover .piece-10{transform:translate3d(-6px,-18px,0) rotate(-3deg)}
+.hero-logo-stage:hover .piece-11{transform:translate3d(0,-22px,0) scale(1.03)}
+.hero-logo-stage:hover .piece-12{transform:translate3d(10px,-12px,0) rotate(6deg)}
+.hero-logo-stage:hover .piece-06{transform:translate3d(-5px,0,0) rotate(-2deg)}
+.hero-logo-stage:hover .piece-07{transform:translate3d(5px,0,0) rotate(2deg)}
+.range-seal-card.split-seal-card{place-items:center;overflow:visible;}
+.range-seal-card.split-seal-card:before{display:none;}
+.range-seal-card .split-logo{width:min(58%,300px);filter:drop-shadow(0 30px 42px rgba(33,17,6,.20));}
+.range-seal-card:hover .piece-09,.range-seal-card:hover .piece-10,.range-seal-card:hover .piece-11,.range-seal-card:hover .piece-12{transform:translateY(-18px) scale(1.03);}
+.motion-product-marker{backdrop-filter:blur(11px);}
+
+/* REV21 — KWAAI VOICE + HERO CLEANUP */
+.hero-kwaai-note{display:inline-flex;gap:10px;align-items:center;margin-top:18px;padding:10px 14px;border-radius:999px;background:rgba(255,247,234,.18);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(10px);font-weight:1000;letter-spacing:.02em;color:#fff;box-shadow:0 18px 45px rgba(0,0,0,.22)}
+.hero-kwaai-note strong{color:#fff}.hero-kwaai-note span{color:#63f2eb}.hero-kwaai-note em{font-style:normal;color:#ffd27a}.voice-card{position:relative;border-radius:34px;padding:clamp(24px,3vw,42px);background:linear-gradient(135deg,rgba(255,255,255,.84),rgba(255,236,211,.64));border:1px solid rgba(33,17,6,.12);box-shadow:0 34px 80px rgba(33,17,6,.13),inset 0 0 0 1px rgba(255,255,255,.64)}
+.voice-card p{margin:0;color:rgba(33,17,6,.72);font-size:clamp(18px,1.6vw,24px);font-weight:900;line-height:1.18}.voice-card .say{font-size:clamp(38px,5vw,88px);font-weight:1000;line-height:.86;letter-spacing:-.08em;text-transform:uppercase;color:var(--ink);display:block;margin:12px 0 10px}.voice-card .say small{color:var(--orange);font-size:.38em;letter-spacing:.06em}.product-info p,.pouch-card p,.caption p,.shop-item p{font-weight:850}.fun-chip{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;background:rgba(0,141,140,.10);color:var(--teal);padding:7px 10px;font-size:11px;font-weight:1000;letter-spacing:.12em;text-transform:uppercase}.hero-logo-stage{opacity:.88}.hero-logo-ring{opacity:.38}.hero-stage{place-items:center end}.hero-copy{max-width:760px}.hero-copy .h1{max-width:760px}
+@media(max-width:980px){.hero-kwaai-note{font-size:13px;flex-wrap:wrap}.hero-stage{place-items:center}.hero-logo-stage{opacity:.72}.voice-card .say{font-size:54px}}
+
+@media(max-width:980px){.hero .section-inner{grid-template-columns:1fr;align-content:center}.hero-stage{position:absolute;right:18px;bottom:78px;min-height:0}.hero-logo-stage{width:128px;min-width:128px;margin:0}.hero-copy .h1{font-size:clamp(56px,17vw,108px);max-width:620px}.hero-video:after{background:linear-gradient(90deg,rgba(18,10,6,.76),rgba(18,10,6,.46) 58%,rgba(18,10,6,.28));}.hero-copy .lede{max-width:430px}.range-seal-card .split-logo{width:min(62%,250px)}}
+@media(max-width:620px){.hero-stage{right:14px;bottom:104px;opacity:.78}.hero-logo-stage{width:104px;min-width:104px;border-radius:22px}.hero-logo-caption{display:none}.hero-copy .h1{font-size:clamp(54px,18vw,92px)}.hero-copy .lede{font-size:17px}.hero-video video{object-position:center center}.hero-video:after{background:linear-gradient(180deg,rgba(18,10,6,.74),rgba(18,10,6,.36) 58%,rgba(18,10,6,.66));}}
+
+
+/* REV22 — full-stack deploy repair + animated meaning logo assembly */
+.meaning-seal{background:linear-gradient(135deg,#fff7ea 0%,#eefdfd 50%,#ffead0 100%);min-height:calc(100svh - var(--header));display:grid;align-items:center;}
+.meaning-inner{display:grid;grid-template-columns:minmax(300px,.78fr) minmax(360px,1.02fr);gap:clamp(32px,6vw,86px);align-items:center;}
+.meaning-logo-card{position:relative;min-height:clamp(430px,56vw,680px);border-radius:58px;background:linear-gradient(135deg,rgba(255,255,255,.72),rgba(255,255,255,.30));border:1px solid rgba(255,255,255,.76);box-shadow:0 46px 120px rgba(33,17,6,.13), inset 0 0 0 1px rgba(255,255,255,.48);backdrop-filter:blur(20px);display:grid;place-items:center;overflow:visible;isolation:isolate;}
+.meaning-logo-card:after{content:"";position:absolute;left:18%;right:18%;bottom:9%;height:9%;border-radius:50%;background:radial-gradient(ellipse,rgba(33,17,6,.24),rgba(33,17,6,.09) 58%,transparent 78%);filter:blur(15px);opacity:.85;z-index:0;}
+.meaning-logo-orbit{position:absolute;inset:9%;border-radius:46%;border:1px solid rgba(0,141,140,.20);border-top-color:rgba(240,75,36,.30);border-right-color:rgba(246,164,0,.28);transform:rotate(-7deg);opacity:.62;}
+.meaning-logo-card .meaning-logo{width:min(58%,360px);z-index:2;filter:drop-shadow(0 34px 42px rgba(33,17,6,.24));}
+.meaning-logo-caption{position:absolute;left:50%;bottom:clamp(18px,4vw,44px);transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;border-radius:999px;background:rgba(255,247,234,.91);padding:12px 18px;box-shadow:0 18px 44px rgba(33,17,6,.14);font-weight:1000;white-space:nowrap;}
+.meaning-logo-caption span{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);}
+.meaning-copy{position:relative;z-index:4;}
+.meaning-copy p strong{color:var(--ink);}
+.meaning-facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.meaning-facts article{position:relative;overflow:hidden;}
+.meaning-facts article:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 0%,rgba(255,255,255,.55) 44%,transparent 68%);transform:translateX(-120%);transition:transform .75s var(--soft);}
+.meaning-facts article:hover:before{transform:translateX(120%);}
+.meaning-logo-card:hover .meaning-logo-orbit{animation:rev22Orbit 2.4s linear infinite;}
+@keyframes rev22Orbit{to{transform:rotate(353deg)}}
+.js-status{margin-top:10px;display:none;border-radius:18px;padding:12px 14px;font-weight:900;background:rgba(0,141,140,.10);color:var(--teal);}
+.cart-box.is-sending{opacity:.78;pointer-events:none;}
+.form-grid .btn{width:100%;}
+@media(max-width:980px){.meaning-inner{grid-template-columns:1fr}.meaning-logo-card{min-height:420px}.meaning-facts{grid-template-columns:1fr}.meaning-logo-card .meaning-logo{width:min(52%,270px)}}
+@media(prefers-reduced-motion:reduce){.meaning-logo-orbit,.split-logo-piece{animation:none!important;transition:none!important}}
+
+</style>
+</head>
+<body>
+<a href="#shop" class="skip-link">Skip to order enquiry</a>
+<div class="progress"><span id="progressBar"></span></div>
+<div class="cold-mist" aria-hidden="true"></div>
+<div class="site-grain" aria-hidden="true"></div>
+<header class="header">
+  <nav class="nav" aria-label="Primary navigation">
+    <a class="brand" href="#home"><img src="assets/kwaai-logo-cutout.png" alt="KWAAI Coffee logo"><span><strong>KWAAI</strong><small>COFFEE</small></span></a>
+    <div class="nav-links"><a class="active" href="#home">Home</a><a href="#motion">Motion</a><a href="#range">Bottles</a><a href="#pouches">Pouches</a><a href="#world">World</a><a href="#shop">Order</a></div>
+    <a href="#shop" class="cart-pill">Order <span id="cartCount">0</span></a>
+  </nav>
+</header>
+
+<div class="cartwheel-actor" id="cartwheelActor" aria-hidden="true">
+  <span class="actor-shadow" id="actorShadow"></span>
+  <img src="assets/bottle-coffee-latte.png" alt="">
+  <span class="cartwheel-label">Coffee Latte · 250 ml</span>
+</div>
+
+<main>
+<section class="hero" id="home" data-dock="hero">
+  <div class="hero-video"><video autoplay muted loop playsinline poster="assets/hero-video-poster.jpg"><source src="assets/kwaai-coffee-hero.mp4" type="video/mp4"></video></div>
+  <div class="section-inner">
+    <div class="hero-copy reveal">
+      <p class="eyebrow hero-eyebrow">Ready cold · KWAAI means cool</p>
+      <h1 class="h1 hero-title" aria-label="Good coffee. Good mood."><span class="hero-line"><span>Good coffee.</span></span><span class="hero-line"><span>Good mood.</span></span></h1>
+      <p class="lede hero-lede">KWAAI means cool. We say it’s <strong>KW-eye</strong>. Ours comes cold: ready-to-drink bottles and chilled pouches for a good-mood little sip situation.</p><div class="hero-kwaai-note"><strong>Say it:</strong> <span>KW-eye</span> <em>— like “why is this so lekker?”</em></div>
+      <div class="hero-actions"><a class="btn" href="#range">Meet the cold stuff</a><a class="btn secondary" href="#shop">Start an order request</a></div>
+    </div>
+    <div class="hero-stage" aria-hidden="true">
+      <div class="hero-logo-stage hero-split-stage reveal" data-split-logo-stage>
+        <div class="split-logo split-logo-hero" aria-hidden="true"><img class="split-logo-piece piece-01" data-piece="1" data-origin="51.93% 93.34%" style="--origin:51.93% 93.34%;--z:1" src="assets/logo-components/01_cup_base_tan.webp" alt=""><img class="split-logo-piece piece-02" data-piece="2" data-origin="31.77% 76.14%" style="--origin:31.77% 76.14%;--z:2" src="assets/logo-components/02_letter_A_left_teal.webp" alt=""><img class="split-logo-piece piece-03" data-piece="3" data-origin="60.73% 75.64%" style="--origin:60.73% 75.64%;--z:3" src="assets/logo-components/03_letter_A_right_coral.webp" alt=""><img class="split-logo-piece piece-04" data-piece="4" data-origin="81.22% 78.54%" style="--origin:81.22% 78.54%;--z:4" src="assets/logo-components/04_letter_i_dark_brown.webp" alt=""><img class="split-logo-piece piece-05" data-piece="5" data-origin="83.56% 64.81%" style="--origin:83.56% 64.81%;--z:5" src="assets/logo-components/05_heart_dot_coral.webp" alt=""><img class="split-logo-piece piece-06" data-piece="6" data-origin="27.58% 51.32%" style="--origin:27.58% 51.32%;--z:6" src="assets/logo-components/06_letter_K_coral.webp" alt=""><img class="split-logo-piece piece-07" data-piece="7" data-origin="69.05% 51.28%" style="--origin:69.05% 51.28%;--z:7" src="assets/logo-components/07_letter_W_orange.webp" alt=""><img class="split-logo-piece piece-08" data-piece="8" data-origin="50.0% 32.96%" style="--origin:50.0% 32.96%;--z:8" src="assets/logo-components/08_cup_lid_dark_brown.webp" alt=""><img class="split-logo-piece piece-09" data-piece="9" data-origin="33.01% 22.08%" style="--origin:33.01% 22.08%;--z:9" src="assets/logo-components/09_splash_left_coral.webp" alt=""><img class="split-logo-piece piece-10" data-piece="10" data-origin="44.09% 18.03%" style="--origin:44.09% 18.03%;--z:10" src="assets/logo-components/10_steam_left_tan.webp" alt=""><img class="split-logo-piece piece-11" data-piece="11" data-origin="54.13% 13.98%" style="--origin:54.13% 13.98%;--z:11" src="assets/logo-components/11_steam_main_dark_brown.webp" alt=""><img class="split-logo-piece piece-12" data-piece="12" data-origin="71.39% 22.29%" style="--origin:71.39% 22.29%;--z:12" src="assets/logo-components/12_splash_right_teal.webp" alt=""><img class="split-logo-fallback" src="assets/kwaai-logo-complete-transparent.png" alt=""></div>
+        <div class="hero-logo-caption"><span>KWAAI</span><small>Say it’s KW-eye</small></div>
+      </div>
+      <div class="hero-facts"><span>250 ml bottles</span><span>Chilled pouches</span><span>Order enquiry</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section motion-story" id="motion" data-dock="motion">
+  <div class="section-inner motion-grid">
+    <div class="route-copy reveal">
+      <p class="eyebrow">How KWAAI moves</p>
+      <h2 class="h2">Cold stuff<br>rolls in.</h2>
+      <p class="lede">The bottle takes the first lap. Then the pouches slide in like they just escaped the cooler.</p>
+      <div class="facts"><div class="fact"><small>Say it</small>KW-eye</div><div class="fact"><small>Means</small>Cool / excellent</div><div class="fact"><small>Vibe</small>Good coffee. Good mood.</div></div>
+    </div>
+    <div class="lane product-theatre-lane reveal" data-dock="lane" aria-label="Animated KWAAI Coffee product sequence">
+      <span class="theatre-route" aria-hidden="true"></span>
+      <article class="motion-product-marker marker-bottle" data-marker="bottle">
+        <span class="marker-step">01</span>
+        <figure class="marker-product marker-product-bottle"><span class="marker-shadow"></span><img src="assets/bottle-coffee-latte.png" alt="Coffee Latte KWAAI Coffee 250 ml bottle"></figure>
+        <div class="marker-copy"><small>250 ml bottle</small><strong>Coffee Latte</strong><span>Daily Good Mood · the bottle doing the most, politely.</span></div>
+      </article>
+      <article class="motion-product-marker marker-range" data-marker="range">
+        <span class="marker-step">02</span>
+        <figure class="marker-product marker-product-range" aria-label="KWAAI 250 ml bottle range">
+          <span class="marker-shadow"></span>
+          <img src="assets/bottle-parisian-chocolate.png" alt="Parisian Chocolate KWAAI Coffee 250 ml bottle">
+          <img src="assets/bottle-cappuccino.png" alt="Cappuccino KWAAI Coffee 250 ml bottle">
+          <img src="assets/bottle-japanese-matcha.png" alt="Japanese Matcha KWAAI Coffee 250 ml bottle">
+        </figure>
+        <div class="marker-copy"><small>Bottle range</small><strong>250 ml bottles</strong><span>Parisian Chocolate · Cappuccino · Japanese Matcha. Small bottles, big main-character energy.</span></div>
+      </article>
+      <article class="motion-product-marker marker-pouches" data-marker="pouches">
+        <span class="marker-step">03</span>
+        <figure class="marker-product marker-product-pouches" aria-label="KWAAI Coffee pouch products">
+          <span class="marker-shadow"></span>
+          <img src="assets/pouch-caramel-latte.png" alt="Caramel Latte KWAAI Coffee pouch, Smooth &amp; Sweet">
+          <img src="assets/pouch-hazelnut-bliss.png" alt="Hazelnut Bliss KWAAI Coffee pouch, Nutty &amp; Creamy">
+          <img src="assets/pouch-vanilla-dream.png" alt="Vanilla Dream KWAAI Coffee pouch, Smooth &amp; Creamy">
+        </figure>
+        <div class="marker-copy"><small>Pouch products</small><strong>Caramel · Hazelnut · Vanilla</strong><span>Smooth &amp; Sweet · Nutty &amp; Creamy · Smooth &amp; Creamy</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section bottle-range" id="range" data-dock="range">
+  <div class="section-inner">
+    <div class="range-head reveal"><div><p class="eyebrow">Chilled bottles</p><h2 class="h2">Choose your<br>cold coffee.</h2></div><p class="copy">Four 250 ml ready-to-drink KWAAI Coffee bottles, each with its own on-pack mood phrase. Tiny bottle. Big “today is not defeating me” energy.</p></div>
+    <div class="product-grid">
+      <article class="product-card reveal" data-tilt><span class="cold-sheen"></span><img class="product-img" src="assets/bottle-parisian-chocolate.png" alt="Parisian Chocolate KWAAI Coffee 250 ml bottle"><div class="product-info"><h3>Parisian Chocolate</h3><div class="meta"><span class="chip">250 ml</span><span class="chip">Bold &amp; Dreamy</span></div><p>Bold &amp; Dreamy on the bottle. A little dramatic, as chocolate is legally allowed to be.</p><button class="add-btn" data-add="Parisian Chocolate bottle — 250 ml — Bold & Dreamy">Add to order request</button></div></article>
+      <article class="product-card reveal" data-tilt><span class="cold-sheen"></span><img class="product-img" src="assets/bottle-cappuccino.png" alt="Cappuccino KWAAI Coffee 250 ml bottle"><div class="product-info"><h3>Cappuccino</h3><div class="meta"><span class="chip">250 ml</span><span class="chip">Smooth &amp; Happy</span></div><p>Smooth &amp; Happy on pack. Basically a tiny pep talk with a black cap.</p><button class="add-btn" data-add="Cappuccino bottle — 250 ml — Smooth & Happy">Add to order request</button></div></article>
+      <article class="product-card reveal hero-product-card" data-tilt data-dock="bottle"><span class="cold-sheen"></span><img class="product-img" src="assets/bottle-coffee-latte.png" alt="Coffee Latte KWAAI Coffee 250 ml bottle"><div class="product-info"><h3>Coffee Latte</h3><div class="meta"><span class="chip">250 ml</span><span class="chip">Daily Good Mood</span></div><p>Daily Good Mood on the bottle. The dependable one. Main-character coffee at 250 ml.</p><button class="add-btn" data-add="Coffee Latte bottle — 250 ml — Daily Good Mood">Add to order request</button></div></article>
+      <article class="product-card reveal" data-tilt><span class="cold-sheen"></span><img class="product-img" src="assets/bottle-japanese-matcha.png" alt="Japanese Matcha KWAAI Coffee 250 ml bottle"><div class="product-info"><h3>Japanese Matcha</h3><div class="meta"><span class="chip">250 ml</span><span class="chip">Clean &amp; Green</span></div><p>Clean &amp; Green on pack. Calm, cool, and very neat about it.</p><button class="add-btn" data-add="Japanese Matcha bottle — 250 ml — Clean & Green">Add to order request</button></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section pouch-range" id="pouches" data-dock="pouches">
+  <div class="section-inner pouch-layout">
+    <div class="pouch-stage reveal" id="pouchTheatre" aria-label="Animated KWAAI pouch product theatre">
+      <div class="pouch-atmosphere" aria-hidden="true"></div>
+      <div class="ice-cubes" aria-hidden="true"></div>
+      <div class="pouch-ice-tray" aria-hidden="true"></div>
+      <figure class="pouch-hero-object" id="pouchHeroObject">
+        <span class="pouch-live-shadow" id="pouchLiveShadow" aria-hidden="true"></span>
+        <img src="assets/pouch-hazelnut-bliss.png" alt="Hazelnut Bliss KWAAI Coffee pouch, Nutty &amp; Creamy">
+        <span class="pouch-glint" aria-hidden="true"></span>
+      </figure>
+      <figure class="pouch-support pouch-support-caramel"><img src="assets/pouch-caramel-latte.png" alt="Caramel Latte KWAAI Coffee pouch, Smooth &amp; Sweet"></figure>
+      <figure class="pouch-support pouch-support-vanilla"><img src="assets/pouch-vanilla-dream.png" alt="Vanilla Dream KWAAI Coffee pouch, Smooth &amp; Creamy"></figure>
+      <div class="pouch-stage-note"><strong>Hazelnut Bliss</strong><span>Nutty &amp; Creamy</span></div>
+    </div>
+    <div class="pouch-copy reveal"><p class="eyebrow">Pouch products</p><h2 class="h2">Pouches with<br>personality.</h2><p class="lede">Same KWAAI mood, softer pack. Caramel Latte is Smooth &amp; Sweet, Hazelnut Bliss is Nutty &amp; Creamy, and Vanilla Dream is Smooth &amp; Creamy. The pouches understood the assignment.</p><div class="pouch-list"><article class="pouch-card"><img src="assets/pouch-caramel-latte.png" alt="Caramel Latte KWAAI Coffee pouch"><h3>Caramel Latte</h3><p>Smooth &amp; Sweet. The pouch that arrived smiling.</p></article><article class="pouch-card featured"><img src="assets/pouch-hazelnut-bliss.png" alt="Hazelnut Bliss KWAAI Coffee pouch"><h3>Hazelnut Bliss</h3><p>Nutty &amp; Creamy. Bliss is literally doing the paperwork.</p></article><article class="pouch-card"><img src="assets/pouch-vanilla-dream.png" alt="Vanilla Dream KWAAI Coffee pouch"><h3>Vanilla Dream</h3><p>Smooth &amp; Creamy. Soft-name, cold-coffee behaviour.</p></article></div></div>
+  </div>
+</section>
+
+<section class="section brand-seal range-bridge meaning-seal" id="seal" data-dock="seal">
+  <div class="seal-bg-type" aria-hidden="true">KWAAI</div>
+  <div class="section-inner reveal range-bridge-inner meaning-inner">
+    <div class="range-seal-card split-seal-card meaning-logo-card" aria-label="Animated KWAAI Coffee logo assembly">
+      <div class="meaning-logo-orbit" aria-hidden="true"></div>
+      <div class="split-logo split-logo-seal meaning-logo" aria-hidden="true">
+        <img class="split-logo-piece piece-01" data-piece="1" data-origin="51.93% 93.34%" style="--origin:51.93% 93.34%;--z:1" src="assets/logo-components/01_cup_base_tan.webp" alt="">
+        <img class="split-logo-piece piece-02" data-piece="2" data-origin="31.77% 76.14%" style="--origin:31.77% 76.14%;--z:2" src="assets/logo-components/02_letter_A_left_teal.webp" alt="">
+        <img class="split-logo-piece piece-03" data-piece="3" data-origin="60.73% 75.64%" style="--origin:60.73% 75.64%;--z:3" src="assets/logo-components/03_letter_A_right_coral.webp" alt="">
+        <img class="split-logo-piece piece-04" data-piece="4" data-origin="81.22% 78.54%" style="--origin:81.22% 78.54%;--z:4" src="assets/logo-components/04_letter_i_dark_brown.webp" alt="">
+        <img class="split-logo-piece piece-05" data-piece="5" data-origin="83.56% 64.81%" style="--origin:83.56% 64.81%;--z:5" src="assets/logo-components/05_heart_dot_coral.webp" alt="">
+        <img class="split-logo-piece piece-06" data-piece="6" data-origin="27.58% 51.32%" style="--origin:27.58% 51.32%;--z:6" src="assets/logo-components/06_letter_K_coral.webp" alt="">
+        <img class="split-logo-piece piece-07" data-piece="7" data-origin="69.05% 51.28%" style="--origin:69.05% 51.28%;--z:7" src="assets/logo-components/07_letter_W_orange.webp" alt="">
+        <img class="split-logo-piece piece-08" data-piece="8" data-origin="50.0% 32.96%" style="--origin:50.0% 32.96%;--z:8" src="assets/logo-components/08_cup_lid_dark_brown.webp" alt="">
+        <img class="split-logo-piece piece-09" data-piece="9" data-origin="33.01% 22.08%" style="--origin:33.01% 22.08%;--z:9" src="assets/logo-components/09_splash_left_coral.webp" alt="">
+        <img class="split-logo-piece piece-10" data-piece="10" data-origin="44.09% 18.03%" style="--origin:44.09% 18.03%;--z:10" src="assets/logo-components/10_steam_left_tan.webp" alt="">
+        <img class="split-logo-piece piece-11" data-piece="11" data-origin="54.13% 13.98%" style="--origin:54.13% 13.98%;--z:11" src="assets/logo-components/11_steam_main_dark_brown.webp" alt="">
+        <img class="split-logo-piece piece-12" data-piece="12" data-origin="71.39% 22.29%" style="--origin:71.39% 22.29%;--z:12" src="assets/logo-components/12_splash_right_teal.webp" alt="">
+        <img class="split-logo-fallback" src="assets/kwaai-logo-complete-transparent.png" alt="KWAAI Coffee logo">
+      </div>
+      <div class="meaning-logo-caption"><strong>It comes together.</strong><span>Letters, lid, steam, attitude.</span></div>
+    </div>
+    <div class="range-bridge-copy voice-card meaning-copy">
+      <p class="eyebrow">What does KWAAI mean?</p>
+      <span class="say">KW-eye <small>not k-way</small></span>
+      <p><strong>We say it’s KW-eye.</strong> KWAAI is South African slang for cool, excellent, seriously good — with a little attitude in the cap. Basically: cold coffee that walks in and makes boring leave quietly.</p>
+    </div>
+    <div class="format-cards meaning-facts" aria-label="KWAAI word and product facts">
+      <article><strong>Origin</strong><span>South African word energy: cool, bold and very much not shy.</span></article>
+      <article><strong>Say it</strong><span>KW-eye. Say it once and your fridge suddenly respects you.</span></article>
+      <article><strong>Drink it</strong><span>250 ml ready-to-drink bottles and chilled pouch products.</span></article>
+    </div>
+  </div>
+</section>
+
+<section class="section world" id="world" data-dock="world">
+  <div class="section-inner"><div class="range-head reveal"><div><p class="eyebrow">Carry it cold</p><h2 class="h2">Good mood<br>in the wild.</h2></div><p class="copy">KWAAI Coffee shows up as bottles, pouches, cooler moments and a bright brand world. The vibe is simple: cold coffee, warm people, zero boring sips.</p></div><div class="world-grid"><article class="editorial-card reveal"><img src="assets/cooler-bottles.webp" alt="KWAAI Coffee bottles in a cooler"><div class="caption"><h3>Cold coffee for outside people.</h3><p>KWAAI bottle products shown together in a chilled cooler setting.</p></div></article><div class="world-stack"><article class="editorial-card small reveal"><img src="assets/pouch-trio-ice.webp" alt="KWAAI pouches on ice"><div class="caption"><h3>Pouches, but make them cheerful.</h3><p>Caramel Latte, Hazelnut Bliss and Vanilla Dream.</p></div></article><article class="editorial-card small reveal"><img src="assets/packet-stack.webp" alt="KWAAI Coffee packet artwork"><div class="caption"><h3>KWAAI on the shelf.</h3><p>Coffee pack artwork shown in the KWAAI colour system.</p></div></article></div></div></div>
+</section>
+
+<section class="section shop" id="shop" data-dock="shop">
+  <div class="section-inner shop-grid">
+    <div><p class="eyebrow">Order enquiry</p><h2 class="h2">Build your<br>KWAAI order.</h2><p class="copy">Pick your KWAAI bottles and pouches. Prices and delivery are confirmed by KWAAI Coffee before anything gets serious. The coffee may be chilled; the order request is not confusing.</p><div class="shop-products" id="shopProducts"></div></div>
+    <aside class="cart-box"><h3>Order request</h3><p class="copy">Add products, leave your details, then send or copy the request. No fake checkout. No secret tunnel. Just coffee admin behaving itself.</p><div class="cart-list" id="cartList">No products selected yet.</div><div class="form-grid"><input id="customerName" placeholder="Your name" aria-label="Your name"><input id="customerContact" placeholder="Email or phone" aria-label="Email or phone"><textarea id="customerNotes" placeholder="Notes, quantities or questions" aria-label="Notes"></textarea><button class="btn dark" id="copySummary">Copy order request</button><button class="btn" id="sendOrder" type="button">Send order request</button></div><p class="disclaimer">Pricing, availability, delivery and payment details will be confirmed by KWAAI Coffee.</p><pre class="summary-output" id="summaryOutput"></pre></aside>
+  </div>
+</section>
+</main>
+<form name="kwaai-order-enquiry" method="POST" data-netlify="true" netlify hidden>
+  <input type="hidden" name="form-name" value="kwaai-order-enquiry">
+  <input type="text" name="name">
+  <input type="text" name="contact">
+  <textarea name="items"></textarea>
+  <textarea name="notes"></textarea>
+</form>
+
+<footer class="footer"><div class="section-inner"><div class="footer-logo"><img src="assets/kwaai-logo-cutout.png" alt="KWAAI Coffee logo"><div><strong>KWAAI Coffee</strong><p>Good coffee. Good mood. KWAAI means cool; we say it’s KW-eye. Product range: 250 ml bottles and pouch products. Enquiry-based ordering.</p></div></div><small>REV21 KWAAI Voice · product facts only · good mood allowed</small></div></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(() => {
+  'use strict';
+  const MOTION = {
+    ease:'power3.inOut',
+    scrub:1.15,
+    // REV12: editorial dock path; rotation returns upright at every information-heavy dock.
+    docks:{
+      hero:{x:1.15,y:.78,rotation:0,scale:.34,opacity:0},
+      motion:{x:.56,y:.58,rotation:72,scale:.76,opacity:1},
+      range:{x:.86,y:.34,rotation:360,scale:.50,opacity:.58},
+      pouches:{x:.12,y:.58,rotation:360,scale:.40,opacity:.20},
+      seal:{x:.50,y:.50,rotation:360,scale:.28,opacity:0},
+      world:{x:.86,y:.42,rotation:360,scale:.40,opacity:.26},
+      shop:{x:.86,y:.66,rotation:360,scale:.46,opacity:.52}
+    }
+  };
+  const products = [
+    {name:'Coffee Latte', info:'250 ml · Daily Good Mood', add:'Coffee Latte bottle — 250 ml — Daily Good Mood', img:'assets/bottle-coffee-latte.png'},
+    {name:'Japanese Matcha', info:'250 ml · Clean & Green', add:'Japanese Matcha bottle — 250 ml — Clean & Green', img:'assets/bottle-japanese-matcha.png'},
+    {name:'Parisian Chocolate', info:'250 ml · Bold & Dreamy', add:'Parisian Chocolate bottle — 250 ml — Bold & Dreamy', img:'assets/bottle-parisian-chocolate.png'},
+    {name:'Cappuccino', info:'250 ml · Smooth & Happy', add:'Cappuccino bottle — 250 ml — Smooth & Happy', img:'assets/bottle-cappuccino.png'},
+    {name:'Caramel Latte pouch', info:'Smooth & Sweet', add:'Caramel Latte pouch — Smooth & Sweet', img:'assets/pouch-caramel-latte.png'},
+    {name:'Hazelnut Bliss pouch', info:'Nutty & Creamy', add:'Hazelnut Bliss pouch — Nutty & Creamy', img:'assets/pouch-hazelnut-bliss.png'},
+    {name:'Vanilla Dream pouch', info:'Smooth & Creamy', add:'Vanilla Dream pouch — Smooth & Creamy', img:'assets/pouch-vanilla-dream.png'}
+  ];
+  const cart = new Map();
+  const $ = (s,r=document)=>r.querySelector(s); const $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
+  const lerp=(a,b,t)=>a+(b-a)*t;
+  const smooth=t=>t*t*(3-2*t);
+  function renderProducts(){ const wrap=$('#shopProducts'); wrap.innerHTML=products.map(p=>`<article class="shop-item"><img src="${p.img}" alt="${p.name}"><div><h3>${p.name}</h3><p>${p.info}</p><button class="add-btn" data-add="${p.add}">Add to order request</button></div></article>`).join(''); }
+  function updateCart(){ const count=[...cart.values()].reduce((a,b)=>a+b,0); $('#cartCount').textContent=count; const list=$('#cartList'); if(!count){list.textContent='No products selected yet.';return;} list.innerHTML=[...cart.entries()].map(([k,q])=>`<div class="cart-row"><span>${k}</span><span class="qty"><button data-dec="${k}">−</button><b>${q}</b><button data-inc="${k}">+</button></span></div>`).join(''); }
+  function addItem(name){ cart.set(name,(cart.get(name)||0)+1); updateCart(); }
+  document.addEventListener('click',e=>{ const add=e.target.closest('[data-add]'); if(add){addItem(add.dataset.add)} const inc=e.target.closest('[data-inc]'); if(inc){cart.set(inc.dataset.inc,(cart.get(inc.dataset.inc)||0)+1); updateCart()} const dec=e.target.closest('[data-dec]'); if(dec){const v=(cart.get(dec.dataset.dec)||0)-1; if(v<=0) cart.delete(dec.dataset.dec); else cart.set(dec.dataset.dec,v); updateCart()} });
+  function orderPayload(){
+    const items=[...cart.entries()].map(([name,qty])=>({name,qty}));
+    return {
+      name: ($('#customerName').value||'').trim(),
+      contact: ($('#customerContact').value||'').trim(),
+      notes: ($('#customerNotes').value||'').trim(),
+      items,
+      source:'KWAAI REV22 website',
+      createdAt:new Date().toISOString()
+    };
+  }
+  function summaryText(){ const p=orderPayload(); const lines=['KWAAI Coffee order enquiry','',...(p.items.length?p.items.map(i=>`- ${i.qty} × ${i.name}`):['- No products selected']),'',`Name: ${p.name}`,`Contact: ${p.contact}`,`Notes: ${p.notes}`,'','Pricing, availability, delivery and payment details will be confirmed by KWAAI Coffee.']; return lines.join('\n'); }
+  function showStatus(message,kind='ok'){ const out=$('#summaryOutput'); out.style.display='block'; out.textContent=message; out.dataset.kind=kind; }
+  $('#copySummary').addEventListener('click', async ()=>{ const text=summaryText(); showStatus(text); try{await navigator.clipboard.writeText(text); $('#copySummary').textContent='Copied'; setTimeout(()=>$('#copySummary').textContent='Copy order request',1400);}catch(err){$('#copySummary').textContent='Summary ready';} });
+  async function submitOrder(){
+    const payload=orderPayload();
+    if(!payload.items.length){ showStatus('Please add at least one KWAAI product before sending the request. The cart is currently more empty than a Monday fridge.','warn'); return; }
+    if(!payload.name || !payload.contact){ showStatus('Please add your name and email or phone before sending. KWAAI can’t reply to a mystery legend.','warn'); return; }
+    const btn=$('#sendOrder'); const box=document.querySelector('.cart-box');
+    btn.textContent='Sending…'; box.classList.add('is-sending');
+    const body=JSON.stringify(payload);
+    const endpoints=['/.netlify/functions/order-enquiry','/api/order-enquiry'];
+    for(const url of endpoints){
+      try{
+        const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body});
+        if(res.ok){ const data=await res.json().catch(()=>({})); showStatus(`Order request received. Reference: ${data.orderId||'KWAAI-REQUEST'}\n\n${summaryText()}`); btn.textContent='Sent'; setTimeout(()=>btn.textContent='Send order request',1600); box.classList.remove('is-sending'); return; }
+      }catch(err){}
+    }
+    // Netlify Forms fallback for static deploys
+    try{
+      const formBody=new URLSearchParams();
+      formBody.set('form-name','kwaai-order-enquiry'); formBody.set('name',payload.name); formBody.set('contact',payload.contact); formBody.set('items',payload.items.map(i=>`${i.qty} × ${i.name}`).join('\n')); formBody.set('notes',payload.notes);
+      const res=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:formBody.toString()});
+      if(res.ok){ showStatus(`Order request submitted through the static form backend.\n\n${summaryText()}`); btn.textContent='Sent'; setTimeout(()=>btn.textContent='Send order request',1600); box.classList.remove('is-sending'); return; }
+    }catch(err){}
+    showStatus(`Could not reach the backend from this local file view. Copy this request and send it manually for now:\n\n${summaryText()}`,'warn');
+    btn.textContent='Send order request'; box.classList.remove('is-sending');
+  }
+  $('#sendOrder').addEventListener('click', submitOrder);
+  renderProducts(); updateCart();
+  const revealIO = new IntersectionObserver(entries=>entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('is-visible'); revealIO.unobserve(en.target)}}),{threshold:.18}); $$('.reveal').forEach(el=>revealIO.observe(el));
+  $$('.nav-links a').forEach(a=>a.addEventListener('click',()=>{$$('.nav-links a').forEach(x=>x.classList.remove('active')); a.classList.add('active')}));
+  $$('.product-card[data-tilt]').forEach(card=>{ card.addEventListener('pointermove',e=>{ const r=card.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width-.5; const y=(e.clientY-r.top)/r.height-.5; card.style.transform=`rotateY(${x*5}deg) rotateX(${-y*4}deg) translateY(-3px)`; }); card.addEventListener('pointerleave',()=>{ card.style.transform=''; }); });
+  function updateProgress(){ const max=document.documentElement.scrollHeight-innerHeight; $('#progressBar').style.transform=`scaleX(${Math.max(0,Math.min(1,scrollY/max))})`; }
+  addEventListener('scroll', updateProgress, {passive:true}); updateProgress();
+  const actor=$('#cartwheelActor'), shadow=$('#actorShadow');
+  function makeDockState(key){ const d=MOTION.docks[key]; return {x:innerWidth*d.x,y:innerHeight*d.y,rotation:d.rotation,scale:d.scale,opacity:d.opacity}; }
+  function nativeTargets(){ const yOf=id=>{const el=document.getElementById(id);return el?el.getBoundingClientRect().top+scrollY:0}; const max=document.documentElement.scrollHeight-innerHeight; return [
+    {at:0, ...makeDockState('hero')},
+    {at:Math.max(0,yOf('motion')-innerHeight*.22), ...makeDockState('motion')},
+    {at:Math.max(0,yOf('range')-innerHeight*.34), ...makeDockState('range')},
+    {at:Math.max(0,yOf('pouches')-innerHeight*.34), ...makeDockState('pouches')},
+    {at:Math.max(0,yOf('seal')-innerHeight*.48), ...makeDockState('seal')},
+    {at:Math.max(0,yOf('world')-innerHeight*.38), ...makeDockState('world')},
+    {at:Math.max(0,yOf('shop')-innerHeight*.40), ...makeDockState('shop')},
+    {at:max, ...makeDockState('shop')}
+  ].sort((a,b)=>a.at-b.at); }
+  function applyActor(state){ if(!actor) return; actor.style.transform=`translate3d(${state.x}px,${state.y}px,0) translate(-50%,-50%) rotate(${state.rotation}deg) scale(${state.scale})`; actor.style.opacity=state.opacity; if(shadow){ shadow.style.opacity=state.opacity>0 ? clamp(state.opacity+.14,.18,.9) : 0; shadow.style.transform=`rotate(3deg) scaleX(${1.04 + (1-state.scale)*.75})`; } }
+  function fallbackActor(){ if(reduce||!actor) return; let targets=nativeTargets(); function tick(){ const y=scrollY; let a=targets[0], b=targets[targets.length-1]; for(let i=0;i<targets.length-1;i++){ if(y>=targets[i].at && y<=targets[i+1].at){a=targets[i]; b=targets[i+1]; break;} } const span=Math.max(1,b.at-a.at); const t=smooth(clamp((y-a.at)/span,0,1)); applyActor({x:lerp(a.x,b.x,t),y:lerp(a.y,b.y,t),rotation:lerp(a.rotation,b.rotation,t),scale:lerp(a.scale,b.scale,t),opacity:lerp(a.opacity,b.opacity,t)}); } addEventListener('scroll',tick,{passive:true}); addEventListener('resize',()=>{targets=nativeTargets();tick();}); tick(); }
+  function gsapMotion(){ if(reduce || !window.gsap || !window.ScrollTrigger){ $$('.split-logo').forEach(l=>l.classList.add('is-fallback')); fallbackActor(); return; } gsap.registerPlugin(ScrollTrigger);
+    function initHeroTextMotion(){
+      gsap.set('.hero-line > span',{yPercent:112,opacity:.01,rotation:1.2});
+      gsap.set('.hero-eyebrow,.hero-lede,.hero-actions .btn',{y:26,opacity:0});
+      const heroTl=gsap.timeline({defaults:{ease:'power4.out'}});
+      heroTl.to('.hero-line > span',{yPercent:0,opacity:1,rotation:0,duration:1.05,stagger:.13})
+        .to('.hero-eyebrow',{y:0,opacity:1,duration:.72},.18)
+        .to('.hero-lede',{y:0,opacity:1,duration:.82},.52)
+        .to('.hero-actions .btn',{y:0,opacity:1,duration:.72,stagger:.08},.68);
+      gsap.utils.toArray('.h2').forEach((heading)=>{
+        gsap.from(heading,{y:70,opacity:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:heading,start:'top 82%'}});
+      });
+    }
+    function initSplitLogoMotion(){
+      gsap.utils.toArray('.split-logo').forEach((logo,logoIndex)=>{
+        const pieces=gsap.utils.toArray('.split-logo-piece',logo);
+        if(!pieces.length){logo.classList.add('is-fallback');return;}
+        gsap.set(pieces,{transformOrigin:(i,el)=>el.dataset.origin||'50% 50%'});
+        const origins=[[-52,36,-12],[34,54,10],[24,48,-8],[45,20,9],[58,-12,12],[-72,0,-10],[74,0,10],[-8,-55,-3],[-54,-44,-16],[-22,-80,-9],[0,-92,0],[48,-46,16]];
+        gsap.fromTo(pieces,{x:(i)=>origins[i]?.[0]||0,y:(i)=>origins[i]?.[1]||0,rotation:(i)=>origins[i]?.[2]||0,scale:.84,opacity:0},{x:0,y:0,rotation:0,scale:1,opacity:1,duration:.95,stagger:.055,ease:'back.out(1.45)',delay:logoIndex?0:.35,scrollTrigger: logoIndex?{trigger:logo.closest('section')||logo,start:'top 78%'}:null});
+        gsap.to(pieces.filter((_,i)=>i>=8),{y:-7,scale:1.015,duration:2.8,repeat:-1,yoyo:true,stagger:.16,ease:'sine.inOut'});
+        logo.addEventListener('pointerenter',()=>gsap.to(pieces,{x:(i)=>[0,-7,6,8,10,-8,8,0,-12,-8,0,12][i]||0,y:(i)=>[0,0,0,0,-8,0,0,-5,-20,-28,-34,-20][i]||0,rotation:(i)=>[0,-2,2,3,8,-3,3,0,-10,-7,0,10][i]||0,duration:.58,ease:'power3.out',overwrite:true}));
+        logo.addEventListener('pointerleave',()=>gsap.to(pieces,{x:0,y:0,rotation:0,duration:.72,ease:'elastic.out(.8,.45)',overwrite:true}));
+      });
+      const meaning=document.querySelector('.meaning-logo');
+      if(meaning){
+        const mp=gsap.utils.toArray('.split-logo-piece', meaning);
+        const froms=[[-110,88,-18],[64,86,18],[40,82,-15],[82,28,14],[96,-16,18],[-132,6,-16],[128,4,16],[-10,-92,-6],[-88,-72,-22],[-42,-124,-14],[0,-142,0],[86,-74,24]];
+        gsap.timeline({scrollTrigger:{trigger:'#seal',start:'top 72%',end:'center center',scrub:1.05}})
+          .fromTo(mp,{x:(i)=>froms[i]?.[0]||0,y:(i)=>froms[i]?.[1]||0,rotation:(i)=>froms[i]?.[2]||0,scale:.72,opacity:.05,filter:'blur(4px)'},{x:0,y:0,rotation:0,scale:1,opacity:1,filter:'blur(0px)',stagger:.055,ease:'none',duration:1})
+          .to('.meaning-logo-card',{rotation:-1.2,scale:1.018,duration:.45,ease:'none'},.4)
+          .to('.meaning-logo-card',{rotation:0,scale:1,duration:.45,ease:'none'},.85);
+        gsap.to('.meaning-logo-orbit',{rotation:360,duration:12,repeat:-1,ease:'none'});
+      }
+    }
+    initHeroTextMotion();
+    initSplitLogoMotion();
+ const mm=gsap.matchMedia();
+    mm.add('(min-width: 821px)',()=>{ const tl=gsap.timeline({scrollTrigger:{trigger:document.body,start:'top top',end:'bottom bottom',scrub:MOTION.scrub,invalidateOnRefresh:true}}); const d=MOTION.docks; const setDock=k=>({x:()=>innerWidth*d[k].x,y:()=>innerHeight*d[k].y,rotation:d[k].rotation,scale:d[k].scale,opacity:d[k].opacity,ease:'none'}); tl.set(actor,{x:()=>innerWidth*d.hero.x,y:()=>innerHeight*d.hero.y,xPercent:-50,yPercent:-50,rotation:0,scale:d.hero.scale,opacity:d.hero.opacity}); tl.to(actor,{...setDock('motion'),duration:.9}); tl.to(actor,{...setDock('range'),duration:1.15}); tl.to(actor,{...setDock('pouches'),duration:.95}); tl.to(actor,{...setDock('seal'),duration:.65}); tl.to(actor,{...setDock('world'),duration:.7}); tl.to(actor,{...setDock('shop'),duration:1}); gsap.to(shadow,{scaleX:1.34,opacity:.70,scrollTrigger:{trigger:document.body,start:'top top',end:'bottom bottom',scrub:true}}); gsap.from('.hero-logo-stage',{scale:.92,rotation:-6,opacity:0,duration:1.05,ease:'power3.out'}); gsap.to('.hero-logo-stage',{y:-38,scale:.9,opacity:.62,scrollTrigger:{trigger:'#home',start:'top top',end:'bottom top',scrub:true}}); const pouchTl=gsap.timeline({scrollTrigger:{trigger:'#pouches',start:'top 70%',end:'bottom 35%',scrub:1.15,invalidateOnRefresh:true}}); pouchTl.fromTo('.pouch-hero-object',{x:260,y:86,rotation:10,scale:.82,skewY:2.2,opacity:0},{x:0,y:0,rotation:-4,scale:1,skewY:0,opacity:1,duration:1,ease:'none'}).to('.pouch-hero-object',{x:-110,y:34,rotation:-8,scale:.96,duration:.75,ease:'none'}).to('.pouch-hero-object',{x:22,y:-18,rotation:1.5,scale:1.06,duration:.8,ease:'none'}).to('.pouch-hero-object',{x:0,y:0,rotation:0,scale:1,duration:.6,ease:'none'}); gsap.to('.pouch-hero-object img',{scaleX:1.014,scaleY:.988,duration:3.6,repeat:-1,yoyo:true,ease:'sine.inOut'}); gsap.to('.pouch-glint',{x:'46%',duration:4.2,repeat:-1,yoyo:true,ease:'sine.inOut'}); gsap.from('.pouch-support-caramel',{x:-120,y:72,rotation:-18,opacity:0,scrollTrigger:{trigger:'#pouches',start:'top 72%',end:'center center',scrub:true}}); gsap.from('.pouch-support-vanilla',{x:120,y:72,rotation:18,opacity:0,scrollTrigger:{trigger:'#pouches',start:'top 72%',end:'center center',scrub:true}}); gsap.from('.pouch-stage-note',{y:24,opacity:0,scrollTrigger:{trigger:'#pouches',start:'top 65%',end:'top 35%',scrub:true}}); gsap.from('.range-seal-card',{scale:.86,rotation:-2,opacity:.35,scrollTrigger:{trigger:'#seal',start:'top 80%',end:'center center',scrub:true}}); gsap.from('.format-cards article',{y:60,opacity:0,stagger:.12,scrollTrigger:{trigger:'.format-cards',start:'top 85%',end:'top 58%',scrub:true}}); gsap.utils.toArray('.product-card').forEach((card,i)=>gsap.from(card,{y:120,rotation:i%2?-3:3,opacity:0,scrollTrigger:{trigger:card,start:'top 86%',end:'top 55%',scrub:true}}));
+      const theatreTl = gsap.timeline({scrollTrigger:{trigger:'#motion',start:'top 72%',end:'bottom 24%',scrub:1.08,invalidateOnRefresh:true}});
+      theatreTl.fromTo('.marker-bottle',{x:-80,y:70,rotation:-12,opacity:.20,scale:.84},{x:0,y:0,rotation:-4,opacity:1,scale:1,duration:.8,ease:'none'})
+        .fromTo('.marker-range',{x:0,y:-80,rotation:8,opacity:.18,scale:.82},{x:0,y:0,rotation:2,opacity:1,scale:1,duration:.9,ease:'none'},'-=.45')
+        .fromTo('.marker-pouches',{x:90,y:70,rotation:12,opacity:.18,scale:.82},{x:0,y:0,rotation:4,opacity:1,scale:1,duration:.9,ease:'none'},'-=.44')
+        .to('.marker-bottle',{scale:.96,opacity:.82,duration:.35,ease:'none'})
+        .to('.marker-range',{scale:1.04,rotation:0,duration:.35,ease:'none'},'<')
+        .to('.marker-pouches',{scale:1.04,rotation:0,duration:.45,ease:'none'})
+        .to('.marker-range',{scale:.98,opacity:.86,duration:.35,ease:'none'},'<');
+      ScrollTrigger.create({trigger:'#motion',start:'top center',end:'bottom center',onUpdate:self=>{ const p=self.progress; gsap.utils.toArray('.motion-product-marker').forEach((el,i)=>el.classList.toggle('is-current', (p<.34&&i===0)||(p>=.34&&p<.68&&i===1)||(p>=.68&&i===2))); }});
+    });
+    mm.add('(max-width: 820px)',()=>{ if(actor) actor.style.display='none'; gsap.utils.toArray('.pouch-hero-object,.pouch-support,.pouch-card').forEach((el,i)=>gsap.from(el,{y:80,opacity:0,duration:.8,delay:i*.04,scrollTrigger:{trigger:'#pouches',start:'top 76%'}})); });
+  }
+  if(document.readyState==='complete') gsapMotion(); else addEventListener('load',gsapMotion);
+})();
+</script>
+</body>
+</html>
