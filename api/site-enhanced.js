@@ -82,8 +82,16 @@ function addProductLinks(html) {
   return output.replace(originalRender, enhancedRender);
 }
 
+function cleanBottleProductInfo(html) {
+  return html
+    .replace(/info:'250 ml (?:\\u00b7|\u00b7) Daily Good Mood'/g, "info:'250 ml ready-to-drink coffee latte'")
+    .replace(/info:'250 ml (?:\\u00b7|\u00b7) Clean & Green'/g, "info:'250 ml ready-to-drink matcha-style drink'")
+    .replace(/info:'250 ml (?:\\u00b7|\u00b7) Bold & Dreamy'/g, "info:'250 ml ready-to-drink chocolate coffee'")
+    .replace(/info:'250 ml (?:\\u00b7|\u00b7) Smooth & Happy'/g, "info:'250 ml ready-to-drink cappuccino coffee'");
+}
+
 function enhanceHome(html) {
-  let output = addProductLinks(html);
+  let output = cleanBottleProductInfo(addProductLinks(html));
   if (!output.includes('"@type":"ItemList"')) {
     output = output.replace('</head>', `${homeStructuredData()}\n</head>`);
   }
