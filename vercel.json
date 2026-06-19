@@ -25,28 +25,44 @@
       "dest": "/assets/$1"
     },
     {
+      "src": "/robots.txt",
+      "dest": "/api/robots.js"
+    },
+    {
+      "src": "/sitemap.xml",
+      "dest": "/api/sitemap.js"
+    },
+    {
       "src": "/index.html",
-      "dest": "/index.html"
+      "dest": "/api/site-enhanced.js"
     },
     {
       "src": "/",
-      "dest": "/api/site-public.js"
+      "dest": "/api/site-enhanced.js"
+    },
+    {
+      "src": "/products/?",
+      "dest": "/api/site-enhanced.js"
+    },
+    {
+      "src": "/products/([^/]+)/?",
+      "dest": "/api/product-page.js?product=$1"
     },
     {
       "src": "/shop/?",
-      "dest": "/api/site-public.js"
+      "dest": "/api/site-enhanced.js"
     },
     {
       "src": "/checkout/?",
-      "dest": "/api/site-public.js"
+      "dest": "/api/site-enhanced.js"
     },
     {
       "src": "/contacts/?",
-      "dest": "/api/site-public.js"
+      "dest": "/api/site-enhanced.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/api/site-enhanced.js"
     }
   ]
 }
