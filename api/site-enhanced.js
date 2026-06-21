@@ -90,8 +90,45 @@ function cleanBottleProductInfo(html) {
     .replace(/info:'250 ml (?:\\u00b7|\u00b7) Smooth & Happy'/g, "info:'250 ml ready-to-drink cappuccino coffee'");
 }
 
+function optimizeMediaLoading(html) {
+  let output = html;
+  if (!output.includes('href="/assets/pouch-hazelnut-bliss.png"')) {
+    output = output.replace('</head>', '<link rel="preload" as="image" href="/assets/pouch-hazelnut-bliss.png">\n</head>');
+  }
+
+  const currentHeroVideo = '<video autoplay muted loop playsinline poster="assets/hero-video-poster.jpg"><source src="assets/kwaai-coffee-hero.mp4" type="video/mp4"></video>';
+  const lazyHeroVideo = '<video autoplay muted loop playsinline preload="none" poster="assets/hero-video-poster.jpg" data-video-src="assets/kwaai-coffee-hero.mp4"></video>';
+  output = output.replace(currentHeroVideo, lazyHeroVideo);
+
+  if (output.includes('data-video-src="assets/kwaai-coffee-hero.mp4"') && !output.includes('kwaaiLazyHeroVideo')) {
+    output = output.replace('</body>', `<script id="kwaaiLazyHeroVideo">
+(() => {
+  const video = document.querySelector('.hero-video video[data-video-src]');
+  if (!video) return;
+  const loadVideo = () => {
+    if (video.dataset.loaded) return;
+    video.dataset.loaded = 'true';
+    const source = document.createElement('source');
+    source.src = video.dataset.videoSrc;
+    source.type = 'video/mp4';
+    video.appendChild(source);
+    video.load();
+    video.play().catch(() => {});
+  };
+  const schedule = window.requestIdleCallback
+    ? (fn) => window.requestIdleCallback(fn, { timeout: 1800 })
+    : (fn) => window.setTimeout(fn, 1200);
+  schedule(loadVideo);
+})();
+</script>
+</body>`);
+  }
+
+  return output;
+}
+
 function enhanceHome(html) {
-  let output = cleanBottleProductInfo(addProductLinks(html));
+  let output = optimizeMediaLoading(cleanBottleProductInfo(addProductLinks(html)));
   if (!output.includes('"@type":"ItemList"')) {
     output = output.replace('</head>', `${homeStructuredData()}\n</head>`);
   }
