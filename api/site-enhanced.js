@@ -98,6 +98,13 @@ function enhanceHome(html) {
   return output;
 }
 
+function setStorefrontCacheHeaders(res) {
+  res.setHeader('Content-Type', 'text/html; charset=utf-8');
+  res.setHeader('Cache-Control', 'public, max-age=0, s-maxage=3600, stale-while-revalidate=86400');
+  res.setHeader('CDN-Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400');
+  res.setHeader('Vercel-CDN-Cache-Control', 'public, max-age=3600, stale-while-revalidate=86400');
+}
+
 module.exports = async function siteEnhanced(req, res) {
   const chunks = [];
   const headers = [];
@@ -116,6 +123,7 @@ module.exports = async function siteEnhanced(req, res) {
   for (const [name, value] of headers) {
     res.setHeader(name, value);
   }
+  setStorefrontCacheHeaders(res);
 
   res.statusCode = capture.statusCode || 200;
   res.end(enhanceHome(chunks.join('')));
