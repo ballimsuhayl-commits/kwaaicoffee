@@ -46,7 +46,7 @@
     },
     {
       "src": "/products/([^/]+)/?",
-      "dest": "/api/product-page.js?product=$1"
+      "dest": "/api/product-cached.js?product=$1"
     },
     {
       "src": "/shop/?",
